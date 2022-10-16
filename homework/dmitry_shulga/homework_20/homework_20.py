@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+import os
 
 
 def open_chrome():
@@ -26,7 +27,7 @@ def check_alert(chrome_driver):
     message_field = chrome_driver.find_element(By.ID, "message")
     message_field.send_keys("Some_message")
     input_field = chrome_driver.find_element(By.ID, "fileUpload")
-    input_field.send_keys("D:/pythonProject/QAP09-onl/QAP-09onl/homework/dmitry_shulga/homework_20/picture.jpg")
+    input_field.send_keys(os.path.join(os.path.dirname(__file__)), '\picture.jpg')
     send_button = chrome_driver.find_element(By.ID, "submitMessage")
     send_button.click()
     alert_success = chrome_driver.find_element(By.CLASS_NAME, "alert-success")
