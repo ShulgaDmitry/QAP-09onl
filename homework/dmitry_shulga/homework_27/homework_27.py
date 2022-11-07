@@ -25,8 +25,6 @@ db.commit()
 cursor.execute(f'SELECT s.name, s.second_name, g.title as group_title, b.title as book_title FROM students s '
                f'JOIN `groups` g ON s.group_id = g.id JOIN books b ON b.taken_by_student_id = s.id '
                f'WHERE s.id = {student_id}')
-#result_1 = cursor.fetchone()
-#result_2 = cursor.fetchone()
 result = cursor.fetchall()
 print(f"Student {result[0]['name']} {result[0]['second_name']} studies in the {result[0]['group_title']} group and "
       f"borrowed the following books from the library: {result[0]['book_title']}, {result[1]['book_title']}")
